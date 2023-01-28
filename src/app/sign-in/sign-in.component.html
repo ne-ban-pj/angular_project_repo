@@ -1,0 +1,41 @@
+<div class="main">
+  <div class="container">
+    <div class="row justify-content-center main_block">
+      <div class="col-xs-8 col-sm-10 col-md-8 center-container pl-4 pr-4 ">
+        <div class="text-center text-primary mt-4">
+          <h2>Log in</h2>
+          <p class="text-uppercase mt-4 text-center text-success">Weather <a class="text-danger a-hovered ml-2" [routerLink]="['/sign-up']" routerLinkActive="router-link-active" >Sign up for free</a>
+          </p>
+        </div>
+        <form #loginModule="ngForm" (ngSubmit)="loginWithEmail()">
+          <div class="form-group">
+            <label for="exampleInputEmail" class="col-form-label-lg">Email</label>
+            <div class="input-group group-with-icon">
+              <input type="text" class="form-control form-control-lg inputCustom" id="exampleInputEmail
+              " aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="userDetail.email">
+              <label for="exampleInputEmail"><i class="fa fa-user fa-lg" aria-hidden="true"></i></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label-lg" for="exampleInputPassword1">Password</label>
+            <div class="input-group group-with-icon">
+              <input type="password" class="form-control form-control-lg inputCustom" id="exampleInputPassword1"
+                placeholder="Password" name="password" [(ngModel)]="userDetail.password">
+              <label for="exampleInputPassword1"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="rememberCheckBox">
+              <label for="rememberCheckBox" class="form-check-label">Remember me?</label>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button  class="btn btn-success button-custom-style font-weight-bold mt-3 mr-3" (click)="loginWithEmail()">Log in</button>
+            <button (click)="authWithGoogle() " class="btn btn-danger  mt-3">Google</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

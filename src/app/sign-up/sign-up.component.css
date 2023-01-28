@@ -1,0 +1,48 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1800');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.signup-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.712);
+  border-radius: 10px;
+  justify-content: left;
+
+}
+
+.inputCustom {
+  background: rgba(255, 255, 255, 1);
+  padding-left: 40px
+  
+}
+
+.group-with-icon {
+  position: relative;
+}
+.group-with-icon i {
+  position: absolute;
+  left: 0;
+  bottom: 35%;
+  padding-left: 15px;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 576px) {
+  .block-left {
+    display: none;
+  }
+
+  .fa-2x {
+    font-size: 28px;
+  }
+
+  .signup-container {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}

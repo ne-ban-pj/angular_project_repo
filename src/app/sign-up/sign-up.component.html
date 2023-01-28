@@ -1,0 +1,67 @@
+<div class="main d-flex align-items-center">
+  <div class="container">
+    <div class="row d-flex ">
+      <div class="col-xs-8 col-sm-9 col-lg-6 signup-container pl-4 pr-4 my-4">
+        <h2 class="text-center text-primary mt-4">Sign Up</h2>
+        <p class="text-uppercase mt-4 text-center text-success" >Already have an account? <a class="text-danger a-hovered ml-2" [routerLink]="['/sign-in']" >Sign in</a></p>
+        <form #myForm='ngForm'>
+          <!-- name -->
+          <div class="form-group">
+            <div class="input-group group-with-icon">
+              <input required type="text" class="form-control form-control-md inputCustom" id="nameInput"
+                placeholder="Enter your name" name="name" [(ngModel)]="userDetails.name">
+                <label for="nameInput"><i class="fa fa-user fa-lg" aria-hidden="true"></i></label>
+            </div>
+          </div>
+          <!-- surname -->
+          <div class="form-group">
+            <div class="input-group group-with-icon">
+                <i class="fa fa-users icon"></i>
+              <input required type="text" class="form-control form-control-md inputCustom" id="surnameInput"
+                placeholder="Enter your surname" name="surname" [(ngModel)]="userDetails.surname">
+            </div>
+          </div>
+          <!-- city -->
+          <div class="form-group">
+            <div class="input-group group-with-icon">
+                <i class="fa fa-building icon"></i>
+              <input required type="text" class="form-control form-control-md inputCustom" id="cityInput"
+                placeholder="Enter city" name="city" [(ngModel)]="userDetails.city">
+            </div>
+          </div>
+          <!-- country -->
+          <div class="form-group">
+            <div class="input-group group-with-icon">
+                <i class="fa fa-flag icon"></i>
+              <input required type="text" class="form-control form-control-md inputCustom" id="countryInput"
+                placeholder="Enter country" name="country" [(ngModel)]="userDetails.country">
+            </div>
+          </div>
+          <!-- email -->
+          <div class="form-group">
+              <div class="input-group group-with-icon">
+                  <i class="fa fa-envelope-open icon"></i>
+                <input required type="text" class="form-control form-control-md inputCustom" id="emailInput"
+                  placeholder="Enter email" name="email" [(ngModel)]="userDetails.email">
+              </div>
+            </div>
+          </form> 
+          <div class="form-group group-with-icon">
+            <div class="input-group">
+                <i class="fa fa-lock fa-lg icon"></i>
+              <input type="text" class="form-control inputCustom" [ngModel]="userDetails.password" placeholder="Password">
+              <div class="input-group-append">
+                <button name="password" class="btn btn-success btn-sm" (click)="generate()"
+                  tabindex="2">Generate</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button [disabled]="myForm.invalid" class="btn btn-success button-custom-style font-weight-bold mt-3 mr-3" (click)="tryRegister()">Sign Up</button>
+            <button (click)="authWithGoogle() " class="btn btn-danger  mt-3">Google</button>
+          </div>
+      
+      </div>
+    </div>
+  </div>
+</div>

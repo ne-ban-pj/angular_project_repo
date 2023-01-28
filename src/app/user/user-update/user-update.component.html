@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Your Profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information: </strong>You have made changes. Any unsaved changes
+        will be lost
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <div>
+              <strong>Imię i Nazwisko: </strong>
+              <p>{{ model.name }}, {{ model.surname }}</p>
+            </div>
+            <strong>Location: </strong>
+            <p>{{ model.city }}, {{ model.country }}</p>
+          </div>
+          <div>
+            <strong>Email: </strong>
+            <p>{{ model.email }}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Edit Profile">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+              <h4>Name</h4>
+              <textarea name="name" row="6" class="form-control" [(ngModel)]="model.name"></textarea>
+              <h4>Surname</h4>
+              <textarea name="surname" row="6" class="form-control" [(ngModel)]="model.surname"></textarea>
+              <h4>City</h4>
+              <textarea name="city" row="6" class="form-control" [(ngModel)]="model.city"></textarea>
+              <h4>Country</h4>
+              <textarea name="country" row="6" class="form-control" [(ngModel)]="model.country"></textarea>
+            </form>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

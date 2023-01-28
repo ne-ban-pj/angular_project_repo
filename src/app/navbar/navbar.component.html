@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/weather']">Weather</a>
+
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item " *ngIf="isAdmin()" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/user-list']">List of users</a>
+      </li>
+    </ul>
+
+    <div *ngIf="loggedIn()" class="dropdown" dropdown>
+      <a class="dropdown-toggle text-light" dropdownToggle>
+        Welcome {{authSevice.decodedToken?.email | titlecase}}
+      </a>
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item" (click)="logout()">
+          <i class="fa fa-sign-out mr-2"></i>Logout</a>
+        <a class="dropdown-item" [routerLink]="['/user-update']">
+          <i class="fa fa-edit mr-2"></i>Update Profile</a>
+      </div>
+    </div>
+  </div>
+
+</nav>

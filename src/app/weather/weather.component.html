@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2 ">
+    <div class="col-sm-12 text-center">
+      <div class="input-group mt-5">
+        <input type="text" class="form-control" #userInput placeholder="Enter city">
+        <div class="input-group-append">
+          <button class="btn btn-success" (click)="getCity(userInput.value)">Search
+            City</button>
+        </div>
+      </div>
+
+      <h5>Current weather and firecast in your city</h5>
+      <h2>Weather in {{weather?.name}}, {{weather?.sys.country}}</h2>
+    </div>
+
+    <div class="col-sm-12 text-center">
+      <span class="temp"><img src="../../assets/{{weather?.weather[0].icon}}.png" alt="">
+        {{weather?.main.temp | number:'1.0-0'}}&#176;F
+      </span>
+      <p class="text-uppercase font-italic font-weight-bold">{{weather?.weather[0].description}}</p>
+    </div>
+    <table class="table table-ligth table-striped table-bordered table-sm text-uppercase">
+      <tbody>
+        <tr>
+          <td>Wilgotność</td>
+          <td>{{ weather?.main.humidity}}%</td>
+        </tr>
+        <tr>
+          <td>Ciśnienie</td>
+          <td>{{weather?.main.pressure}}hpa</td>
+        </tr>
+        <tr>
+          <td>Wschód słońca</td>
+          <td>{{weather?.sys.sunrise*1000 | date:'H:mm'}}</td>
+        </tr>
+        <tr>
+          <td>Zachód słońca</td>
+          <td>{{weather?.sys.sunset*1000 | date:'H:mm'}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <agm-map [latitude]="lat" [longitude]="lon" (mapClick)="getCoords($event)">
+      <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+    </agm-map>
+  </div>
+</div>

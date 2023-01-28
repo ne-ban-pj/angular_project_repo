@@ -1,0 +1,40 @@
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center" *ngIf="model.length == 0">
+    <p>There is no users added yet!</p>
+    <!-- <button class="btn btn-outline-primary" routerLink="/create-employee">Add User</button> -->
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="model.length !== 0">
+    <h3 class="mb-3 text-center">Users List</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Email</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+            <th scope="col">Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of model">
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.country}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.password}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
